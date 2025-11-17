@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hub Nona – Neurobranding Estratégico & IA para Conteúdo</title>
+    <meta name="description" content="Organizamos ideias, ajustamos sua comunicação e criamos conteúdos prontos que maximizam atenção, clareza e engajamento.">
+    <style>
+        /* FONT IMPORT (optional, using system fonts as fallback) */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+        /* CSS VARIABLES */
+        :root {
+            --bg-main: #0E0E0E;
+            --bg-secondary: #1A1A1A;
+            --text-primary: #FFFFFF;
+            --text-secondary: #A0A0A0;
+            --accent: #00D1FF;
+            --accent-hot: #FD3A2D;
+            --border-color: #2a2a2a;
+            --font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            --max-width: 1200px;
+            --border-radius: 12px;
+            --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+            --shadow-glow: 0 0 20px rgba(0, 209, 255, 0.15);
+        }
+
+        /* RESET & BASE STYLES */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            font-family: var(--font-family);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* TYPOGRAPHY */
+        h1, h2, h3 {
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            letter-spacing: -0.04em;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: -0.03em;
+            text-align: center;
+        }
+        
+        h3 {
+            font-size: clamp(1.25rem, 3vw, 1.5rem);
+        }
+
+        p {
+            color: var(--text-secondary);
+            font-size: clamp(1rem, 2.5vw, 1.125rem);
+            max-width: 65ch;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        a:hover {
+            opacity: 0.8;
+        }
+
+        /* LAYOUT & UTILITIES */
+        .container {
+            width: 90%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 6rem 0;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-header p {
+            margin: 1rem auto 0;
+        }
+
+        /* HEADER */
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 5%;
+            background: rgba(14, 14, 14, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+            transition: height 0.3s ease;
+        }
+
+        .logo img {
+            height: 78px;
+            width: auto;
+        }
+
+        .main-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .main-nav a {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .main-nav {
+                display: none;
+            }
+        }
+
+        /* BUTTONS */
+        .btn {
+            display: inline-block;
+            padding: 0.875rem 2rem;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: #000;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(0, 209, 255, 0.3);
+        }
+
+        .btn-hot {
+            background-color: var(--accent-hot);
+            color: var(--text-primary);
+        }
+
+        .btn-hot:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 30px rgba(253, 58, 45, 0.3);
+        }
+
+        /* HERO SECTION */
+        #hero {
+            padding-top: 12rem;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1589182373726-e4f658ab50f0?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        #hero .container {
+            padding-bottom: 4rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero-content h1 {
+            background: linear-gradient(90deg, #fff, #a3a3a3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            margin: 1.5rem auto 2.5rem;
+        }
+        
+        .hero-content .microcopy {
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        /* SERVICES SECTION */
+        .services-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .services-text {
+            text-align: center;
+        }
+        
+        #services p {
+            max-width: 80ch;
+            margin: 0 auto;
+        }
+
+        .services-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+        }
+
+        .services-list li {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            text-align: center;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+        
+        .services-list li svg {
+            width: 20px;
+            height: 20px;
+            color: var(--accent);
+        }
+
+        /* MECHANISM SECTION */
+        .mechanism-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .mechanism-card {
+            background-color: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .mechanism-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 15px rgba(26, 26, 26, 0.5);
+        }
+
+        .mechanism-card h3 {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .mechanism-card h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30px;
+            height: 3px;
+            border-radius: 2px;
+        }
+        
+        .mechanism-card:nth-child(1) h3 { color: var(--accent-hot); }
+        .mechanism-card:nth-child(1) h3::after { background-color: var(--accent-hot); }
+        .mechanism-card:nth-child(2) h3 { color: var(--accent); }
+        .mechanism-card:nth-child(2) h3::after { background-color: var(--accent); }
+        .mechanism-card:nth-child(3) h3 { color: var(--accent-hot); }
+        .mechanism-card:nth-child(3) h3::after { background-color: var(--accent-hot); }
+        
+        .mechanism-footer {
+            margin-top: 4rem;
+        }
+
+        .mechanism-footer p {
+            text-align: center;
+            margin: auto;
+        }
+
+        /* PLANS SECTION */
+        #plans {
+            background: var(--bg-secondary);
+        }
+        .plans-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .plan-card {
+            background-color: var(--bg-main);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+        
+        .plan-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-glow);
+        }
+        
+        .plan-card:nth-child(2):hover {
+             border-color: var(--accent);
+        }
+        
+        .plan-card h3 {
+            margin-bottom: 1rem;
+        }
+
+        .plan-card .price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+        
+        .plan-card:nth-child(1) .price,
+        .plan-card:nth-child(3) .price {
+            color: var(--accent-hot);
+        }
+        
+        .plan-card:nth-child(2) .price {
+            color: var(--accent);
+        }
+        
+        .plan-card p {
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .plan-card .btn {
+            width: 100%;
+        }
+        
+        /* BENEFITS SECTION */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .benefit-item {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .benefit-item svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+        
+        .benefit-item span {
+            font-weight: 500;
+        }
+
+        /* PORTFOLIO SECTION */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .portfolio-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            aspect-ratio: 1 / 1;
+            background-color: var(--bg-secondary);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            object-position: center;
+            transition: transform 0.4s ease;
+        }
+
+        .portfolio-item img.offset-right {
+            object-position: 90% center;
+        }
+        
+        .portfolio-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        @media (min-width: 768px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        /* ABOUT SECTION */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        
+        #about p {
+            max-width: 70ch;
+        }
+
+        .about-principles {
+            margin-top: 3rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            width: 100%;
+            max-width: 900px;
+        }
+        
+        .principle-card {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        /* SOURCES SECTION */
+        #sources {
+            background: var(--bg-secondary);
+        }
+        .sources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .source-card {
+            background-color: var(--bg-main);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-color);
+        }
+        
+        .source-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .source-card .author {
+            font-size: 0.9rem;
+            color: var(--accent);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        /* FINAL CTA SECTION */
+        #final-cta .container {
+            text-align: center;
+        }
+
+        #final-cta p {
+            margin: 1rem auto 2.5rem;
+        }
+        
+        /* FOOTER */
+        .main-footer {
+            padding: 3rem 5%;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-contact a {
+            display: inline-block;
+        }
+        
+        .footer-contact svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--text-secondary);
+            transition: fill 0.3s ease;
+        }
+        
+        .footer-contact a:hover svg {
+            fill: var(--accent);
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="main-header" id="header">
+        <a href="#hero" class="logo">
+            <img src="https://www.dropbox.com/scl/fi/1yk3cdcpdbr2ym2c6xrgi/Hub-nona-quadrado-baixa-resolu-o.png?rlkey=lojr45pht16hua45dgempags9&raw=1" alt="Logo Hub Nona">
+        </a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#services">O que fazemos</a></li>
+                <li><a href="#mechanism">Como funciona</a></li>
+                <li><a href="#plans">Planos</a></li>
+                <li><a href="#portfolio">Exemplos</a></li>
+                <li><a href="#about">Sobre</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Neurobranding Estratégico & IA para conteúdos que conectam</h1>
+                    <p>Organizamos ideias, ajustamos sua comunicação e criamos conteúdos prontos que maximizam atenção, clareza e engajamento.</p>
+                    <a href="#plans" class="btn btn-primary">Quero melhorar o meu conteúdo hoje</a>
+                    <p class="microcopy">Análise rápida, ações imediatas e conteúdos prontos em 24h.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="container">
+            <div class="section-header">
+                <h2>O que a Hub Nona faz</h2>
+                <p>Analisamos o que faz o seu público reagir e transformamos isso em conteúdos aplicados, belos e eficientes.</p>
+            </div>
+            <div class="services-content">
+                <ul class="services-list">
+                    <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m12.75 15 3-3m0 0-3-3m3 3h-7.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg> Comunicação clara</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" /></svg> Estética estratégica</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></svg> Conteúdo aplicado</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg> Análise rápida</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg> Tecnologia a favor</li>
+                    <li><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" /></svg> Foco no que conecta</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- MECHANISM SECTION -->
+        <section id="mechanism" class="container">
+            <div class="section-header">
+                <h2>Como transformamos atenção em conteúdo</h2>
+            </div>
+            <div class="mechanism-grid">
+                <div class="mechanism-card">
+                    <h3>Passo 1 — Identificamos gatilhos de atenção</h3>
+                    <p>Analisamos o que prende o olhar, o que desperta curiosidade e o que gera interesse genuíno no seu público-alvo, usando princípios de neurociência aplicada.</p>
+                </div>
+                <div class="mechanism-card">
+                    <h3>Passo 2 — Criamos conteúdo com intenção</h3>
+                    <p>Transformamos esses gatilhos em formatos, textos e visuais estrategicamente pensados para máxima clareza, impacto e conexão emocional.</p>
+                </div>
+                <div class="mechanism-card">
+                    <h3>Passo 3 — Entregamos tudo pronto para você aplicar</h3>
+                    <p>Você recebe posts, roteiros e todos os elementos visuais prontos para usar no seu dia a dia, economizando tempo e garantindo consistência.</p>
+                </div>
+            </div>
+            <div class="mechanism-footer">
+                <p>Nosso método analisa estímulos de atenção e comportamento, convertendo isso em conteúdo estratégico e visualmente atrativo, pronto para ser publicado.</p>
+            </div>
+        </section>
+
+        <!-- PLANS SECTION -->
+        <section id="plans">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Planos de Neuroconteúdo Estratégico</h2>
+                </div>
+                <div class="plans-grid">
+                    <div class="plan-card">
+                        <h3>Conteúdo Imediato</h3>
+                        <div class="price">R$47</div>
+                        <p>Criação ou correção rápida do seu conteúdo + 5 posts prontos + 2 roteiros. Melhore seu conteúdo HOJE, sem complicação.</p>
+                        <a href="https://wa.me/message/EQP66B6LAROFL1" target="_blank" rel="noopener noreferrer" class="btn btn-hot">Quero o Imediato</a>
+                    </div>
+                    <div class="plan-card">
+                        <h3>Posicionamento Premium</h3>
+                        <div class="price">R$147</div>
+                        <p>10 posts prontos + 4 roteiros + covers minimalistas + 1 template premium. Perfeito para quem quer subir o nível de estética e clareza.</p>
+                        <a href="https://wa.me/message/EQP66B6LAROFL1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Quero o Premium</a>
+                    </div>
+                    <div class="plan-card">
+                        <h3>Plano Mensal + Landing Page</h3>
+                        <div class="price">R$297/mês</div>
+                        <p>20 posts mensais + 8 roteiros + 2 templates premium + landing page e suporte semanal. Crescimento contínuo, consistente e profissional.</p>
+                        <a href="https://wa.me/message/EQP66B6LAROFL1" target="_blank" rel="noopener noreferrer" class="btn btn-hot">Quero o Mensal</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BENEFITS SECTION -->
+        <section id="benefits" class="container">
+             <div class="section-header">
+                <h2>Por que o seu conteúdo melhora quando passa pela Hub Nona</h2>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 0 0 6 3.75v16.5a2.25 2.25 0 0 0 2.25 2.25h7.5A2.25 2.25 0 0 0 18 20.25V3.75a2.25 2.25 0 0 0-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" /></svg><span>Clareza imediata</span></div>
+                <div class="benefit-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 0 0-2.456 2.456Z" /></svg><span>Estética moderna</span></div>
+                <div class="benefit-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M15.042 21.672 13.684 16.6m0 0-2.51 2.225.569-9.47 5.227 7.917-3.286-.672ZM12 2.25V4.5m5.834.166-1.591 1.591M20.25 10.5h-2.25m-1.591 5.834-1.591-1.591M4.5 12H6.75m-1.591-5.834 1.591 1.591M5.25 19.5h2.25m5.834.166-1.591-1.591" /></svg><span>Conteúdos feitos com intenção</span></div>
+                <div class="benefit-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.243 4.243L6.228 6.228" /></svg><span>Foco em atenção e comportamento</span></div>
+                <div class="benefit-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h4.5M12 3v13.5" /></svg><span>Templates que facilitam tudo</span></div>
+                <div class="benefit-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z" /></svg><span>Aplicação rápida</span></div>
+                <div class="benefit-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 8.25V6a2.25 2.25 0 0 0-2.25-2.25H6A2.25 2.25 0 0 0 3.75 6v8.25A2.25 2.25 0 0 0 6 16.5h2.25m8.25-8.25H18a2.25 2.25 0 0 1 2.25 2.25v8.25A2.25 2.25 0 0 1 18 20.25h-7.5A2.25 2.25 0 0 1 8.25 18v-1.5m8.25-8.25h-6a2.25 2.25 0 0 0-2.25 2.25v6" /></svg><span>Consistência visual</span></div>
+                <div class="benefit-item"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 0 0 8.716-6.747M12 21a9.004 9.004 0 0 1-8.716-6.747M12 21V3m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m0 18c1.657 0 3-4.03 3-9s-1.343-9-3-9M12 3c0 1.512 1.017 2.75 2.25 2.75S16.5 4.512 16.5 3M12 3c0 1.512-1.017 2.75-2.25 2.75S7.5 4.512 7.5 3" /></svg><span>Execução com apoio de tecnologia</span></div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO SECTION -->
+        <section id="portfolio" class="container">
+            <div class="section-header">
+                <h2>Crie Conexão</h2>
+                <p>Exemplos visuais de como o conteúdo pode ser apresentado para gerar impacto.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://www.dropbox.com/scl/fi/h6z0lakmss4x1mjhgxhuo/Neg-cio-Local-Burger-House-COLE-O.png?rlkey=b74gf8dfclyo8e9lihypplf81&raw=1" alt="Exemplo de mockup para hamburgueria">
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://www.dropbox.com/scl/fi/ovdww1eyaihlkaydb6m2l/Nutri-Carol-Ventura-COLE-O-2.png?rlkey=xqfthk91i32nugl1q6wzj8ons&raw=1" alt="Exemplo de mockup para nutricionista" class="offset-right">
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://www.dropbox.com/scl/fi/47kbzz02g77zw68i706qm/Psi-Renato-Sabino-COLE-O.png?rlkey=lt14ga9me5igj7qh7vplrizkl&raw=1" alt="Exemplo de mockup para terapeuta">
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="container">
+            <div class="section-header">
+                <h2>Sobre a Hub Nona</h2>
+            </div>
+            <div class="about-content">
+                <p>Utilizamos conteúdo estratégico com Neurobranding & IA para transformar perfis comuns em perfis claros, atrativos e profissionais.</p>
+                <div class="about-principles">
+                    <div class="principle-card">Estética pensada</div>
+                    <div class="principle-card">Atenção entendida</div>
+                    <div class="principle-card">Execução rápida</div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- SOURCES SECTION -->
+        <section id="sources">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Fontes e inspirações que orientam nosso trabalho</h2>
+                    <p>Nosso trabalho é inspirado em estudos e publicações consolidadas nas áreas de comportamento, atenção, neuromarketing, neurociência e inteligência artificial.</p>
+                </div>
+                <div class="sources-grid">
+                    <div class="source-card">
+                        <h4>Princípios de Economia Comportamental</h4>
+                        <div class="author">Dan Ariely & Richard Thaler</div>
+                        <p>Análise sobre como fatores psicológicos influenciam decisões.</p>
+                    </div>
+                     <div class="source-card">
+                        <h4>A Neurociência da Tomada de Decisão</h4>
+                        <div class="author">Antonio Damasio</div>
+                        <p>O papel das emoções nos processos de escolha e engajamento.</p>
+                    </div>
+                     <div class="source-card">
+                        <h4>Heurísticas e Vieses Cognitivos</h4>
+                        <div class="author">Kahneman & Tversky</div>
+                        <p>Estudos sobre os "atalhos mentais" que moldam o julgamento.</p>
+                    </div>
+                    <div class="source-card">
+                        <h4>Impacto da IA na Comunicação</h4>
+                        <div class="author">MIT Technology Review</div>
+                        <p>Publicações sobre o avanço tecnológico na criação de conteúdo.</p>
+                    </div>
+                    <div class="source-card">
+                        <h4>Design de Interação Humano-Computador</h4>
+                        <div class="author">Stanford HCI Group</div>
+                        <p>Pesquisas sobre como interfaces digitais capturam e retêm atenção.</p>
+                    </div>
+                    <div class="source-card">
+                        <h4>Estratégias de Marketing Digital</h4>
+                        <div class="author">Harvard Business Review</div>
+                        <p>Artigos sobre a aplicação de insights de comportamento no mercado.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FINAL CTA SECTION -->
+        <section id="final-cta">
+            <div class="container">
+                <h2>Pronto para melhorar seu conteúdo hoje?</h2>
+                <p>Dê o primeiro passo para organizar sua comunicação e publicar conteúdos que realmente façam sentido para o seu público.</p>
+                <a href="https://wa.me/message/EQP66B6LAROFL1" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Quero meu diagnóstico em 24h</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p>&copy; 2025 Hub Nona. Todos os direitos reservados.</p>
+        <div class="footer-contact">
+            <a href="https://wa.me/message/EQP66B6LAROFL1" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.204-1.634a11.86 11.86 0 005.79 1.494h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/hubnona" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.585-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.585-.012-4.85-.07c-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.664-4.771 4.919-4.919C8.415 2.175 8.796 2.163 12 2.163m0-1.623C8.724.54 8.333.552 7.053.612c-3.44.156-5.791 2.5-5.95 5.95-.06 1.28-.071 1.67-.071 4.437s.011 3.156.071 4.437c.158 3.45 2.508 5.79 5.95 5.95 1.28.06 1.67.072 4.947.072s3.667-.012 4.947-.072c3.44-.16 5.792-2.5 5.95-5.95.06-1.28.072-1.67.072-4.437s-.012-3.156-.072-4.437c-.158-3.45-2.508-5.79-5.95-5.95C15.667.552 15.276.54 12 .54z"/><path d="M12 6.865a5.135 5.135 0 1 0 0 10.27 5.135 5.135 0 0 0 0-10.27zm0 8.73A3.595 3.595 0 1 1 12 8.46a3.595 3.595 0 0 1 0 7.135z"/><circle cx="16.802" cy="7.198" r="1.215"/></svg>
+            </a>
+            <a href="mailto:contato@hubnona.com.br" aria-label="Email">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/></svg>
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>
